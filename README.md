@@ -113,13 +113,19 @@ Analogous to how the Kuadrant broker federates `tools/list` from multiple MCP se
 
 ```mermaid
 graph TD
-    Client[Calling Agent] -->|GET /.well-known/agent.json| GatewayBroker[Gateway Broker]
-    GatewayBroker -->|Fetch Card| AgentA[Agent A (Streaming, Skill X)]
-    GatewayBroker -->|Fetch Card| AgentB[Agent B (Push, Skill Y)]
+    Client["Calling Agent"]
+    GatewayBroker["Gateway Broker"]
+    AgentA["Agent A<br/>Streaming, Skill X"]
+    AgentB["Agent B<br/>Push, Skill Y"]
+    MergeAlg["MergeAgentCards()"]
+
+    Client -->|"GET /.well-known/agent.json"| GatewayBroker
+    GatewayBroker -->|"Fetch Card"| AgentA
+    GatewayBroker -->|"Fetch Card"| AgentB
     AgentA -.-> GatewayBroker
     AgentB -.-> GatewayBroker
-    GatewayBroker -->|Merge & Resolve Conflicts| MergeAlg[MergeAgentCards()]
-    MergeAlg -.->|Unified Card| Client
+    GatewayBroker -->|"Merge and Resolve Conflicts"| MergeAlg
+    MergeAlg -.->|"Unified Card"| Client
 ```
 
 ### Agent Card Merge Algorithm
