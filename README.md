@@ -1,6 +1,5 @@
 # A2A Protocol Gateway Research
 
-> **Note:** Hey! This repo is just a scratchpad for my initial thoughts and architecture notes on the A2A gateway integration (LFX Issue #766). It's definitely not a finished design doc by any means—just a place for me to map out how the protocol multiplexer and agent card federation might actually look in code before diving into the deep research during the mentorship!
 
 ## 1. Architectural Strategy
 
